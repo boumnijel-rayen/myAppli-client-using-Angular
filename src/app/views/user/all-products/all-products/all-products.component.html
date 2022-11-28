@@ -1,13 +1,21 @@
 <div class="component">
     <p class="title"><span>pages</span> / Produits</p>
+    <div class="barre-rech">
+        <input type="text" placeholder="Rechercher un produit" class="rech">
+        <button class="btn-rech"><i class="bi bi-search"></i></button>
+        <button routerLink="/user/addProduct" class="ajoute btn btn-success"><i class="bi bi-plus-lg"></i></button>
+    </div>
     <div class="products">
         <table>
             <thead>
                 <tr>
                     <th>photo</th>
-                    <th>username</th>
-                    <th>nom</th>
-                    <th>nb des taches</th>
+                    <th>libelle</th>
+                    <th>description</th>
+                    <th>date ajoute</th>
+                    <th>prix DT</th>
+                    <th>prix liv DT</th>
+                    <th>laboratoire</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -15,11 +23,53 @@
                 <tr>
                     <td><img src="assets/img/product.png" alt=""></td>
                     <td>username</td>
-                    <td>name</td>
-                    <td>nbTasks</td>
+                    <td class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+                    <td>2022-11-25 10:50:13</td>
+                    <td>200</td>
+                    <td>7</td>
+                    <td>tunis</td>
                     <td>
                         <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-info">Voir</button>
+                        <button type="button" class="btn btn-primary">Modifier</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="assets/img/product.png" alt=""></td>
+                    <td>username</td>
+                    <td class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+                    <td>2022-11-25 10:50:13</td>
+                    <td>200</td>
+                    <td>7</td>
+                    <td>tunis</td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" class="btn btn-primary">Modifier</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="assets/img/product.png" alt=""></td>
+                    <td>username</td>
+                    <td class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+                    <td>2022-11-25 10:50:13</td>
+                    <td>200</td>
+                    <td>7</td>
+                    <td>tunis</td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" class="btn btn-primary">Modifier</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="assets/img/product.png" alt=""></td>
+                    <td>username</td>
+                    <td class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+                    <td>2022-11-25 10:50:13</td>
+                    <td>200</td>
+                    <td>7</td>
+                    <td>tunis</td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" class="btn btn-primary">Modifier</button>
                     </td>
                 </tr>
             </tbody>
