@@ -8,12 +8,12 @@
         <p>username</p>
     </div>
     <ul class="menu">
-        <li routerLink="/user"><i class="bi bi-cart-dash-fill"></i> Produits</li>
-        <li routerLink="/user/suppliers"><i class="bi bi-people-fill"></i> Fournisseurs</li>
-        <li routerLink="/user/addProduct"><i class="bi bi-bag-check-fill"></i> Ajouter Produit</li>
-        <li routerLink="/user/addSupplier"><i class="bi bi-person-fill-add"></i> Ajouter Fournisseur</li>
-        <li routerLink="/user/commander"><i class="bi bi-window-plus"></i> Passer Une Commande</li>
-        <li routerLink="/user/factures"><i class="bi bi-file-text"></i> Factures</li>
+        <li routerLink="/user" #produits (click)="changePColor()"><i class="bi bi-cart-dash-fill"></i> Produits</li>
+        <li routerLink="/user/suppliers" #fournisseur (click)="changeFColor()"><i class="bi bi-people-fill"></i> Fournisseurs</li>
+        <li routerLink="/user/addProduct" #addProduit (click)="changeAPColor()"><i class="bi bi-bag-check-fill"></i> Ajouter Produit</li>
+        <li routerLink="/user/addSupplier" #addFournisseur (click)="changeAFColor()"><i class="bi bi-person-fill-add"></i> Ajouter Fournisseur</li>
+        <li routerLink="/user/commander" #commander (click)="changeCColor()"><i class="bi bi-window-plus"></i> Passer Une Commande</li>
+        <li routerLink="/user/factures" #facture (click)="changeFaColor()"><i class="bi bi-file-text"></i> Factures</li>
     </ul>
     <div class="out">
         <i class="bi bi-door-open-fill"></i>

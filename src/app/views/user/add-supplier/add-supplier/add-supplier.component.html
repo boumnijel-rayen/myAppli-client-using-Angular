@@ -3,39 +3,41 @@
     <div class="container">
         <div class="title">Nouveau fournisseur</div>
         <div class="content">
-        <form>
+        <form [formGroup]="myForm" (ngSubmit)="add()">
             <div class="user-details">
                 <div class="flex">
                     <div class="input-box">
                         <span class="details">Nom</span>
-                        <input type="text" placeholder="écrivez le nom" required>
-                        <div class="error">nom obligatoire</div>
+                        <input type="text" formControlName="nom" placeholder="écrivez le nom" required>
+                        <div class="error" *ngIf="myForm.get('nom').touched && myForm.get('nom').hasError('required')">nom obligatoire</div>
                     </div>
                     <div class="input-box">
                         <span class="details">Prénom</span>
-                        <input type="text" placeholder="écrivez le prénom" required>
-                        <div class="error">prénom obligatoire</div>
+                        <input type="text" formControlName="prenom" placeholder="écrivez le prénom" required>
+                        <div class="error" *ngIf="myForm.get('prenom').touched && myForm.get('prenom').hasError('required')">prénom obligatoire</div>
                     </div>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="email" placeholder="écrivez l'email" required>
-                    <div class="error">email obligatoire</div>
+                    <input type="email" formControlName="email" placeholder="écrivez l'email" required>
+                    <div class="error" *ngIf="myForm.get('email').touched && myForm.get('email').hasError('required')">email obligatoire</div>
+                    <div class="error" *ngIf="myForm.get('email').touched && myForm.get('email').hasError('email')">email invalid</div>
                 </div>
                 <div class="input-box">
                     <span class="details">Adresse</span>
-                    <input type="text" placeholder="écrivez l'adresse" required>
-                    <div class="error">adresse obligatoire</div>
+                    <input type="text" formControlName="adresse" placeholder="écrivez l'adresse" required>
+                    <div class="error" *ngIf="myForm.get('adresse').touched && myForm.get('adresse').hasError('required')">adresse obligatoire</div>
                 </div>
                 <div class="input-box">
                     <span class="details">Téléphone</span>
-                    <input type="text" placeholder="écrivez le téléphone" required>
-                    <div class="error">téléphone obligatoire</div>
+                    <input type="text" formControlName="tel" placeholder="écrivez le téléphone" required>
+                    <div class="error" *ngIf="myForm.get('tel').touched && myForm.get('tel').hasError('required')">téléphone obligatoire</div>
+                    <div class="error" *ngIf="myForm.get('tel').touched && myForm.get('tel').invalid && !myForm.get('tel').hasError('required')">téléphone invalid</div>
                 </div>
             </div>
-            <div class="success"><p>ajouté avec succés</p></div>
+            <div class="success" *ngIf="succes"><p>ajouté avec succés</p></div>
             <div class="button">
-                <input type="submit" value="Ajouter">
+                <input type="submit" [disabled]="myForm.invalid" value="Ajouter">
             </div>
         </form>
         </div>

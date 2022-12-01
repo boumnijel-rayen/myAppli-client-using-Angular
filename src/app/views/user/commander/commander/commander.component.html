@@ -38,7 +38,7 @@
                      <div class="error" *ngIf="myForm.get('fournisseur').touched && myForm.get('fournisseur').value == initialValueFournisseur">fournisseur obligatoire</div>
                 </div>
             </div>
-            <div class="success"><p>commandé</p></div>
+            <div class="success" *ngIf="succes"><p>commandé</p></div>
             <div class="button">
                 <input type="submit" value="Commander" [disabled]="myForm.invalid || !commandesControl">
             </div>

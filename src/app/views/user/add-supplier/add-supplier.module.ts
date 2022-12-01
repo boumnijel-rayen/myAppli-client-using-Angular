@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AddSupplierRoutingModule } from './add-supplier-routing.module';
 import { AddSupplierComponent } from './add-supplier/add-supplier.component';
@@ -11,7 +12,8 @@ import { AddSupplierComponent } from './add-supplier/add-supplier.component';
   ],
   imports: [
     CommonModule,
-    AddSupplierRoutingModule
+    AddSupplierRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AddSupplierModule { }

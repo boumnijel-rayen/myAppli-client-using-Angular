@@ -12,6 +12,7 @@ export class CommanderComponent implements OnInit{
   @ViewChild('produit') produit : any;
   commandesControl : Boolean = false;
   myForm : any;
+  succes : boolean = false;
   commandesList : any = [];
   initialValueFournisseur : string = "Choisissez un fournisseur";
   constructor(private formBuilder : FormBuilder) { 
@@ -49,10 +50,11 @@ export class CommanderComponent implements OnInit{
   }
 
   commander(){
-      for(let i = 0; i < this.commandes.nativeElement.options.length; i++){
-        this.commandesList.push(this.commandes.nativeElement.options[i].value);
-      }
-      console.log(this.commandesList,'fournisseur',this.myForm.value.fournisseur);
+    this.succes = true;
+    for(let i = 0; i < this.commandes.nativeElement.options.length; i++){
+      this.commandesList.push(this.commandes.nativeElement.options[i].value);
+    }
+    console.log(this.commandesList,'fournisseur',this.myForm.value.fournisseur);
   }
 
 }
