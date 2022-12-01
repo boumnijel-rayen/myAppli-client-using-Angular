@@ -1,1 +1,65 @@
-<p>add-product works!</p>
+<div class="component">
+    <p class="title"><span>pages</span> / Ajouter produit</p>
+    <div class="container">
+        <div class="title">Nouveau produit</div>
+        <div class="content">
+        <form>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Libellé</span>
+                    <input type="text" placeholder="écrivez le libellé" required>
+                    <div class="error">libellé obligatoire</div>
+                </div>
+                <div class="input-box">
+                    <span class="details">Description</span>
+                    <textarea name="description" id="description" minlength="10" placeholder="écrivez la description" cols="30" rows="10" required></textarea>
+                    <div class="error">description obligatoire</div>
+                </div>
+                <div class="flex">
+                    <div class="input-box">
+                        <span class="details">Prix</span>
+                        <input type="number" required name="prix">
+                        <div class="error">prix obligatoire</div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prix livraison</span>
+                        <input type="number" required name="prix_liv">
+                        <div class="error">prix livraison obligatoire</div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-box">
+                        <div class="select"> 
+                            <select name="format" id="format" required >
+                               <option selected disabled>Choisissez une catégorie</option>
+                               <option>1</option>
+                            </select>
+                         </div>
+                    </div>
+                    <div class="input-box">
+                        <div class="select"> 
+                            <select name="format" id="format" required >
+                               <option selected disabled>Choisissez un laboratoire</option>
+                               <option>1</option>
+                            </select>
+                         </div>
+                         <div class="error">laboratoire obligatoire</div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <label class="custom-file-upload">
+                            <input type="file" required id="file" name="file">
+                            <i class="bi bi-cloud-arrow-up-fill"></i> Photo de profile
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="success"><p>ajouté avec succés</p></div>
+            <div class="button">
+                <input type="submit" value="Ajouter">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

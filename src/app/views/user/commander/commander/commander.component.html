@@ -1,1 +1,48 @@
-<p>commander works!</p>
+<div class="component">
+    <p class="title"><span>pages</span> / Passer une commande</p>
+    
+    <div class="container">
+        <div class="title">Passer une commande</div>
+        <div class="content">
+        <form [formGroup]="myForm" (ngSubmit)="commander()">
+            <div class="user-details">
+                <div class="flex">
+                    <div class="input-box">
+                        <div class="select"> 
+                            <select name="format" #produit id="format" required >
+                               <option selected disabled>Choisissez une produit</option>
+                               <option>1</option>
+                               <option>3</option>
+                               <option>4</option>
+                               <option>5</option>
+                               <option>6</option>
+                            </select>
+                         </div>
+                    </div>
+                    <div class="buttonA">
+                        <button type="button" (click)="addCommande()">Ajouter</button>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <select formControlName="commandes" class="commandes" #commandes size="10" name="commandes" id="commandes">
+                    </select>
+                    <div class="error" *ngIf="myForm.get('commandes').touched && !commandesControl">il faut ajouter au moins un produit</div>
+                </div>
+                <div class="input-box">
+                    <div class="select"> 
+                        <select name="format" formControlName="fournisseur" id="format" required >
+                           <option selected disabled>Choisissez un fournisseur</option>
+                           <option>1</option>
+                        </select>
+                     </div>
+                     <div class="error" *ngIf="myForm.get('fournisseur').touched && myForm.get('fournisseur').value == initialValueFournisseur">fournisseur obligatoire</div>
+                </div>
+            </div>
+            <div class="success"><p>commandé</p></div>
+            <div class="button">
+                <input type="submit" value="Commander" [disabled]="myForm.invalid || !commandesControl">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
