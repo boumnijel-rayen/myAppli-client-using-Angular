@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-layout',
@@ -13,7 +14,7 @@ export class UserLayoutComponent implements OnInit {
   @ViewChild('fournisseur') fournisseur: any;
   @ViewChild('commander') commander: any;
   @ViewChild('facture') facture: any;
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -108,4 +109,9 @@ export class UserLayoutComponent implements OnInit {
     this.commander.nativeElement.style.color = 'rgb(13, 37, 255)';
   }
 
+  logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    this.router.navigate(['/login']);
+  }
 }

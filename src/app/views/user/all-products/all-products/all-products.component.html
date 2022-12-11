@@ -15,20 +15,22 @@
                     <th>prix DT</th>
                     <th>prix liv DT</th>
                     <th>laboratoire</th>
+                    <th>catégorie</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>username</td>
-                    <td class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>7</td>
-                    <td>tunis</td>
+                <tr *ngFor="let produit of produits">
+                    <td>{{produit.lib_p}}</td>
+                    <td class="desc">{{produit.description}}</td>
+                    <td>{{produit.date_ajout}}</td>
+                    <td>{{produit.prix_p}}</td>
+                    <td>{{produit.prix_liv}}</td>
+                    <td>{{produit.laboratoire.lib_lab}}</td>
+                    <td>{{produit.categorie.lib_cat}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-primary">Modifier</button>
+                        <button type="button" (click)="supprimer(produit.id_p)" class="btn btn-danger">Supprimer</button>
+                        <button type="button" (click)="modifier(produit.id_p)" class="btn btn-primary">Modifier</button>
                     </td>
                 </tr>
             </tbody>

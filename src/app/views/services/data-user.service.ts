@@ -13,4 +13,9 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.put('http://localhost:8080/utilisateur/find/email', emailObject, { headers : headers})
   }
+
+  getAllProduct(token : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8080/produits/all',{headers : headers})
+  }
 }

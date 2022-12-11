@@ -15,7 +15,7 @@
         <li routerLink="/user/commander" #commander (click)="changeCColor()"><i class="bi bi-window-plus"></i> Passer Une Commande</li>
         <li routerLink="/user/factures" #facture (click)="changeFaColor()"><i class="bi bi-file-text"></i> Factures</li>
     </ul>
-    <div class="out">
+    <div class="out"(click)="logout()">
         <i class="bi bi-door-open-fill"></i>
         Log out
     </div>
