@@ -35,7 +35,11 @@
 form .txt{
     position: relative;
     border-bottom: 2px solid #adadad;
-    margin: 30px 0;
+    margin: 20px 0;
+}
+
+.form{
+    margin-bottom: 30px;
 }
 
 form .txt input{
@@ -110,7 +114,7 @@ form .txt input:focus ~ span::before,form .txt input:valid ~ span::before{
 }
 
 .erreur{
-    margin-top: -20px;
+    margin: 20px 0;
     color: white;
     width: 80%;
     text-align: center;
@@ -122,7 +126,20 @@ form .txt input:focus ~ span::before,form .txt input:valid ~ span::before{
     background-color: rgb(255, 78, 78);
 }
 
+.btnn:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+    border: none;
+}
+
 .hide{
     display: none;
     visibility: hidden;
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 0px;
 }
