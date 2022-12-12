@@ -83,4 +83,14 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.put('http://localhost:8080/utilisateur/'+id_u+'/assignPU/'+id_p,{}, {headers : headers})
   }
+
+  addSupplier(token:any, supplier : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.post('http://localhost:8080/fournisseur/add', supplier, {headers : headers})
+  }
+
+  assignSupplierToUser(token:any, id_u : any,id_fr : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8080/fournisseur/'+id_u+'/assignFU/'+id_fr,{}, {headers : headers})
+  }
 }
