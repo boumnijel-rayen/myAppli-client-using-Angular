@@ -106,3 +106,69 @@ tbody button{
     left: 100px;
     top: 40px;
 }
+
+.line{
+    display: flex;
+}
+
+.line .txt-box{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.txt-box input, .txt-box textarea{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #99a4be;
+    outline: none;
+}
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: #5c6664;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:#fff;
+    cursor:pointer;
+    font-size: 0.9em;
+ }
+
+select::-ms-expand {
+    display: none;
+}
+ 
+.select {
+    position: relative;
+    display: flex;
+    width: 14em;
+    margin: 0 10px;
+    height: 2.2em;
+    line-height: 2.2;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #2b2e2e;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+}
+
+.select:hover::after {
+    color: #5a2ff5;
+}
