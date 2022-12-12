@@ -58,4 +58,29 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.put('http://localhost:8080/fournisseur/update/'+id, supplier,{headers : headers})
   }
+
+  addProduct(token:any, product : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.post('http://localhost:8080/produits/add', product, {headers : headers})
+  }
+
+  assignLaboToProduct(token:any, id_lab : any, id_p : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8080/produits/'+id_p+'/assignLP/'+id_lab,{},{headers : headers})
+  }
+
+  assignCatToProduct(token:any, id_cat : any, id_p : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8080/produits/'+id_p+'/assignCP/'+id_cat,{}, {headers : headers})
+  }
+
+  assignMagToProduct(token:any, id_p : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8080/produits/'+id_p+'/assignMP/'+1,{}, {headers : headers})
+  }
+
+  assignProduitToUser(token:any, id_u : any,id_p : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8080/utilisateur/'+id_u+'/assignPU/'+id_p,{}, {headers : headers})
+  }
 }

@@ -3,59 +3,56 @@
     <div class="container">
         <div class="title">Nouveau produit</div>
         <div class="content">
-        <form>
+        <form  [formGroup]="myForm" (ngSubmit)="addProduct()">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Libellé</span>
-                    <input type="text" placeholder="écrivez le libellé" required>
-                    <div class="error">libellé obligatoire</div>
+                    <input type="text" formControlName="libelle" placeholder="écrivez le libellé" required>
+                    <div class="error" *ngIf="myForm.get('libelle').touched && myForm.get('libelle').hasError('required')">libellé obligatoire</div>
                 </div>
                 <div class="input-box">
                     <span class="details">Description</span>
-                    <textarea name="description" id="description" minlength="10" placeholder="écrivez la description" cols="30" rows="10" required></textarea>
-                    <div class="error">description obligatoire</div>
+                    <textarea name="description" formControlName="description" id="description" minlength="10" placeholder="écrivez la description" cols="30" rows="10" required></textarea>
+                    <div class="error" *ngIf="myForm.get('description').touched && myForm.get('description').hasError('required')">description obligatoire</div>
                 </div>
                 <div class="flex">
                     <div class="input-box">
                         <span class="details">Prix</span>
-                        <input type="number" required name="prix">
-                        <div class="error">prix obligatoire</div>
+                        <input type="number" formControlName="prix" required name="prix">
+                        <div class="error" *ngIf="myForm.get('prix').touched && myForm.get('prix').hasError('required')">prix obligatoire</div>
                     </div>
                     <div class="input-box">
                         <span class="details">Prix livraison</span>
-                        <input type="number" required name="prix_liv">
-                        <div class="error">prix livraison obligatoire</div>
+                        <input type="number" formControlName="prix_liv" required name="prix_liv">
+                        <div class="error" *ngIf="myForm.get('prix_liv').touched && myForm.get('prix_liv').hasError('required')">prix livraison obligatoire</div>
                     </div>
                 </div>
                 <div class="flex">
                     <div class="input-box">
                         <div class="select"> 
-                            <select name="format" id="format" required >
+                            <select name="format" id="format" formControlName="categorie" required >
                                <option selected disabled>Choisissez une catégorie</option>
-                               <option>1</option>
+                               <option [value]="categorie.id_cat" *ngFor="let categorie of categories">{{categorie.lib_cat}}</option>
                             </select>
                          </div>
                     </div>
                     <div class="input-box">
                         <div class="select"> 
-                            <select name="format" id="format" required >
+                            <select name="format" id="format" formControlName="laboratoire" required >
                                <option selected disabled>Choisissez un laboratoire</option>
-                               <option>1</option>
+                               <option [value]="labo.id_lab" *ngFor="let labo of labos">{{labo.lib_lab}}</option>
                             </select>
                          </div>
-                         <div class="error">laboratoire obligatoire</div>
                     </div>
                 </div>
-                <div class="line">
-                    <div>
-                        <label class="custom-file-upload">
-                            <input type="file" required id="file" name="file">
-                            <i class="bi bi-cloud-arrow-up-fill"></i> Photo de profile
-                        </label>
+                <div class="flex">
+                    <div class="date1">
+                        <span class="details">Date Ajout</span>
+                        <input type="datetime-local" formControlName="dateA" name="dateA">
                     </div>
                 </div>
             </div>
-            <div class="success"><p>ajouté avec succés</p></div>
+            <div class="success" *ngIf="succes"><p>ajouté avec succés</p></div>
             <div class="button">
                 <input type="submit" value="Ajouter">
             </div>
