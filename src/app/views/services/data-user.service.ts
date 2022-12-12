@@ -43,4 +43,19 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.put('http://localhost:8080/produits/update/'+id, product,{headers : headers})
   }
+
+  getAllSupplier(token : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8080/fournisseur/all/',{headers : headers})
+  }
+
+  deleteSupplier(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.delete('http://localhost:8080/fournisseur/delete/'+id,{headers : headers})
+  }
+
+  updateSupplier(token : any, id : any, supplier : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8080/fournisseur/update/'+id, supplier,{headers : headers})
+  }
 }

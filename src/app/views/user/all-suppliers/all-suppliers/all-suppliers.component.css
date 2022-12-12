@@ -74,3 +74,20 @@ tbody button{
     width: 50px;
     height: 50px;
 }
+
+.line{
+    display: flex;
+}
+
+.line .txt-box{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.txt-box input, .txt-box textarea{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #99a4be;
+    outline: none;
+}

@@ -14,40 +14,65 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>nom</td>
-                    <td>username</td>
-                    <td>exemple@gmail.com</td>
-                    <td>21 546 888</td>
-                    <td>Tunis</td>
+                <tr *ngFor="let supplier of suppliers">
+                    <td>{{supplier.nom_fr}}</td>
+                    <td>{{supplier.prenom_fr}}</td>
+                    <td>{{supplier.email_fr}}</td>
+                    <td>{{supplier.telephone_fr}}</td>
+                    <td>{{supplier.adresse_fr}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-primary">Modifier</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>nom</td>
-                    <td>username</td>
-                    <td>exemple@gmail.com</td>
-                    <td>21 546 888</td>
-                    <td>Tunis</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-primary">Modifier</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>nom</td>
-                    <td>username</td>
-                    <td>exemple@gmail.com</td>
-                    <td>21 546 888</td>
-                    <td>Tunis</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-primary">Modifier</button>
+                        <button type="button" (click)="supprimerSupplier(supplier.id_fr)" class="btn btn-danger">Supprimer</button>
+                        <button type="button" (click)="chergerSupplier(supplier.id_fr,supplier.prenom_fr,supplier.email_fr,supplier.telephone_fr,supplier.adresse_fr)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modifier</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modifier Produit</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="myForm">
+            <div class="line">
+                <div class="txt-box">
+                    <label for="nom">Nom</label>
+                    <input type="text" formControlName="nom" [(ngModel)]="nom_fr" id="nom" name="nom" placeholder="nom">
+                </div>
+                <div class="txt-box">
+                    <label for="prenom">Prenom</label>
+                    <input type="text" formControlName="prenom" id="prenom" [(ngModel)]="prenom_fr" name="prenom" placeholder="prenom">
+                </div>
+            </div>
+            <div class="line">
+                <div class="txt-box">
+                    <label for="telephone">Telephone</label>
+                    <input type="text" formControlName="telephone" id="telephone" [(ngModel)]="telephone_fr" name="telephone" placeholder="telephone">
+                </div>
+                <div class="txt-box">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" formControlName="adresse" id="adresse" [(ngModel)]="adresse_fr" name="adresse" placeholder="adresse">
+                </div>
+            </div>
+            <div class="line">
+                <div class="txt-box">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" id="email" [(ngModel)]="email_fr" name="email" placeholder="email">
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modifierSupplier(id_fr)">Modifier</button>
+        </div>
+      </div>
     </div>
 </div>
