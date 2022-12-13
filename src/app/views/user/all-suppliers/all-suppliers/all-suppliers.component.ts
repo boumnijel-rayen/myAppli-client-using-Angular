@@ -37,7 +37,7 @@ export class AllSuppliersComponent implements OnInit {
   }
 
   supprimerSupplier(id : any){
-    this.dataUser.deleteSupplier(this.token, id).subscribe(data => {
+    this.dataUser.deleteSupplier(this.token, id).subscribe().add(()=>{
       this.ngOnInit();
     })
   }
@@ -60,11 +60,9 @@ export class AllSuppliersComponent implements OnInit {
     }
     console.log(id);
     console.log(supplier);
-    this.dataUser.updateSupplier(this.token, id, supplier).subscribe(
-      (data : any) => {
-        this.ngOnInit();
-      }
-    )
+    this.dataUser.updateSupplier(this.token, id, supplier).subscribe().add(()=>{
+      this.ngOnInit();
+    })
   }
 
 }

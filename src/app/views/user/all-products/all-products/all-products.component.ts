@@ -41,7 +41,9 @@ export class AllProductsComponent implements OnInit {
   }
 
   supprimer(id_p:any){
-    this.dataUser.deleteProduct(this.token, id_p).subscribe();
+    this.dataUser.deleteProduct(this.token, id_p).subscribe().add(()=>{
+      this.ngOnInit();
+    })
   }
 
   getProduct(id_p: any,lib_p : any,description : any,date_ajout : any,prix_p : any,prix_liv : any){
@@ -68,7 +70,9 @@ export class AllProductsComponent implements OnInit {
       date_ajout : this.towDigits(date.getDate())+"-"+this.towDigits(date.getMonth()+1)+"-"+date.getFullYear()+" "+this.towDigits(date.getHours())+":"+this.towDigits(date.getMinutes())+":"+this.towDigits(date.getSeconds())
     }
     console.log(product);
-    this.dataUser.updateProduct(this.token, id, product).subscribe();
+    this.dataUser.updateProduct(this.token, id, product).subscribe().add(() => {
+      this.ngOnInit();
+    })
   }
 
   chercherParMot(){

@@ -60,7 +60,7 @@ tbody tr:last-child{
 }
 
 tbody button{
-    margin: 0 5px;
+    margin: 5px;
     color: white;
     font-size: 15px;
 }

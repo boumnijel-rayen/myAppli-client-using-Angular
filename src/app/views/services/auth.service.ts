@@ -15,4 +15,12 @@ export class AuthService {
     return this.http.post('http://localhost:8080/login', body, { headers : headers})
   }
 
+  connected(){
+    if (localStorage.getItem('token') == null){
+      return false
+    }else{
+      return true
+    }
+  }
+
 }

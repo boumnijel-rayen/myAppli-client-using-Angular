@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+import { AuthLoginGuard } from './views/guards/auth-login.guard';
+import { AuthUserGuard } from './views/guards/auth-user.guard';
 
 const routes: Routes = [
   {path: '', component: HomeLayoutComponent, children: [
     {path: '', loadChildren: () => import('./views/home/home-page/home-page.module').then(m => m.HomePageModule)},
-    {path: 'login', loadChildren: () => import('./views/home/sign-in/sign-in.module').then(m => m.SignInModule)}
+    {path: 'login', canActivate:[AuthLoginGuard],loadChildren: () => import('./views/home/sign-in/sign-in.module').then(m => m.SignInModule)}
   ]},
-  {path: 'user', component: UserLayoutComponent, children: [
+  {path: 'user', component: UserLayoutComponent, canActivate:[AuthUserGuard],children: [
     {path: '', loadChildren: () => import('./views/user/all-products/all-products.module').then(m => m.AllProductsModule)},
     {path: 'commander', loadChildren: () => import('./views/user/commander/commander.module').then(m => m.CommanderModule)},
     {path: 'addProduct', loadChildren: () => import('./views/user/add-product/add-product.module').then(m => m.AddProductModule)},

@@ -21,7 +21,7 @@
                     <td>{{facture.fournisseur.nom_fr}}</td>
                     <td>
                         <button type="button" (click)="deleteFacture(facture.id_f)" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-info">Générer</button>
+                        <button type="button" (click)="downloadFacture(facture.date_facture,facture.total_HT,facture.total_TTC,facture.total_TVA,facture.fournisseur.nom_fr)" class="btn btn-info">Télécharger</button>
                     </td>
                 </tr>
             </tbody>
