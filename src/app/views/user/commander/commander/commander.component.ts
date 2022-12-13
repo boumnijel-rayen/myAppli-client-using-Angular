@@ -83,8 +83,9 @@ export class CommanderComponent implements OnInit{
       var splitted = this.commandes.nativeElement.options[i].value.split("<-->");
       this.commandesList.push(new Commande(splitted[0],splitted[1],splitted[2]));
     }
-    console.log(this.commandesList);
-    console.log(this.myForm.value.fournisseur);
+    this.dataUser.passerCommande(this.token, this.commandesList, this.myForm.value.fournisseur);
+    // console.log(this.commandesList);
+    // console.log(this.myForm.value.fournisseur);
     this.succes = true;
   }
 
