@@ -103,4 +103,13 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.delete('http://localhost:8080/facture/delete/'+id, {headers : headers})
   }
+
+  passerCommande(token:any, commande : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+  }
+
+  chercherParMotCle(token:any, mc : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8080/produits/findParMot/'+mc, {headers : headers})
+  }
 }

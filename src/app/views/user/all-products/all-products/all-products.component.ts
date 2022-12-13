@@ -20,6 +20,7 @@ export class AllProductsComponent implements OnInit {
   myForm : any;
   token : any = localStorage.getItem('token')
   id : any = localStorage.getItem('id')
+  myForm2: any;
   constructor(private dataUser : DataUserService, private builder : FormBuilder) { 
     this.myForm = this.builder.group({
       libelle : ['', Validators.required],
@@ -27,6 +28,9 @@ export class AllProductsComponent implements OnInit {
       prix : ['', Validators.required],
       prix_liv : ['', Validators.required],
       date : ['', Validators.required]
+    })
+    this.myForm2 = this.builder.group({
+      mot : ['', Validators.required]
     })
   }
 
@@ -65,6 +69,12 @@ export class AllProductsComponent implements OnInit {
     }
     console.log(product);
     this.dataUser.updateProduct(this.token, id, product).subscribe();
+  }
+
+  chercherParMot(){
+    this.dataUser.chercherParMotCle(this.token,this.myForm2.value.mot).subscribe(data => {
+      this.produits = data;
+    })
   }
 
 }

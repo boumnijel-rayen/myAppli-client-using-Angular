@@ -11,16 +11,24 @@
                         <div class="select"> 
                             <select name="format" #produit id="format" required >
                                <option selected disabled>Choisissez une produit</option>
-                               <option>1</option>
-                               <option>3</option>
-                               <option>4</option>
-                               <option>5</option>
-                               <option>6</option>
+                               <option [value]="produit.id_p" *ngFor="let produit of produits">{{produit.lib_p}}</option>
                             </select>
                          </div>
                     </div>
                     <div class="buttonA">
                         <button type="button" (click)="addCommande()">Ajouter</button>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="input-box">
+                        <span class="details">Quantité</span>
+                        <input type="number" formControlName="Quantite" required name="Quantite">
+                        <div class="error" *ngIf="myForm.get('Quantite').touched && myForm.get('Quantite').hasError('required')">Quantite obligatoire</div>
+                    </div>
+                    <div class="date1">
+                        <span class="details">Date fourni</span>
+                        <input type="datetime-local" formControlName="date_fourni" name="date_fourni">
+                        <div class="error" *ngIf="myForm.get('date_fourni').touched && myForm.get('date_fourni').hasError('required')">Date fourni obligatoire</div>
                     </div>
                 </div>
                 <div class="input-box">
@@ -32,7 +40,7 @@
                     <div class="select"> 
                         <select name="format" formControlName="fournisseur" id="format" required >
                            <option selected disabled>Choisissez un fournisseur</option>
-                           <option>1</option>
+                           <option [value]="supplier.id_fr" *ngFor="let supplier of suppliers">{{supplier.nom_fr}}</option>
                         </select>
                      </div>
                      <div class="error" *ngIf="myForm.get('fournisseur').touched && myForm.get('fournisseur').value == initialValueFournisseur">fournisseur obligatoire</div>

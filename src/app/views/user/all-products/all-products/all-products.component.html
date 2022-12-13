@@ -1,10 +1,12 @@
 <div class="component">
     <p class="title"><span>pages</span> / Produits</p>
-    <div class="barre-rech">
-        <input type="text" placeholder="Rechercher un produit" class="rech">
-        <button class="btn-rech"><i class="bi bi-search"></i></button>
-        <button routerLink="/user/addProduct" class="ajoute btn btn-success"><i class="bi bi-plus-lg"></i></button>
-    </div>
+    <form [formGroup]="myForm2">
+        <div class="barre-rech">
+            <input type="text" formControlName="mot" placeholder="Rechercher un produit" class="rech">
+            <button class="btn-rech" (click)="chercherParMot()"><i class="bi bi-search"></i></button>
+            <button routerLink="/user/addProduct" class="ajoute btn btn-success"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </form>
     <div class="products">
         <table>
             <thead>
