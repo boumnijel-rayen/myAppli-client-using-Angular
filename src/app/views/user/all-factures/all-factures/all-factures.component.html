@@ -13,36 +13,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>260</td>
-                    <td>nom</td>
+                <tr *ngFor="let facture of factures">
+                    <td>{{facture.date_facture}}</td>
+                    <td>{{facture.total_HT}}</td>
+                    <td>{{facture.total_TTC}}</td>
+                    <td>{{facture.total_TVA}}</td>
+                    <td>{{facture.fournisseur.nom_fr}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-info">Générer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>260</td>
-                    <td>nom</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-info">Générer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>260</td>
-                    <td>nom</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" (click)="deleteFacture(facture.id_f)" class="btn btn-danger">Supprimer</button>
                         <button type="button" class="btn btn-info">Générer</button>
                     </td>
                 </tr>

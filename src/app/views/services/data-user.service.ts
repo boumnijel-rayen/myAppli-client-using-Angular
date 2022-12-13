@@ -93,4 +93,14 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.put('http://localhost:8080/fournisseur/'+id_u+'/assignFU/'+id_fr,{}, {headers : headers})
   }
+
+  getAllFactures(token:any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8080/facture/all', {headers : headers})
+  }
+
+  deleteFacture(token:any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.delete('http://localhost:8080/facture/delete/'+id, {headers : headers})
+  }
 }
